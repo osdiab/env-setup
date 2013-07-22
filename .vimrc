@@ -473,3 +473,17 @@ function! Mosh_Tab_Or_Complete()
 endfunction
 
 inoremap <Tab> <C-R>=Mosh_Tab_Or_Complete()<CR>
+set tw=79
+set fo+=t
+augroup vimrc_autocmds
+    autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
+    autocmd BufEnter * match OverLength /\%79v.*/
+augroup END
+
+au BufNewFile, BufRead *.cpp set syntax=cpp11
+
+" autoformat
+noremap <F7> :Autoformat<CR><CR>
+
+" powerline
+set rtp+=/Users/odiab/powerline/powerline/bindings/vim
