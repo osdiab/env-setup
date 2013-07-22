@@ -486,4 +486,4 @@ au BufNewFile, BufRead *.cpp set syntax=cpp11
 noremap <F7> :Autoformat<CR><CR>
 
 " powerline
-set rtp+=/Users/odiab/powerline/powerline/bindings/vim
+set rtp+=~/lib/powerline/powerline/bindings/vim
