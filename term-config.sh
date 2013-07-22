@@ -13,15 +13,15 @@ curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/
 
 # install vim packages
 if [ ! -d ~/.vim/bundle/syntastic ]; then
-  git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle
+  git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/syntastic
 fi
 
 if [ ! -d ~/.vim/bundle/nerdcommenter ]; then
-  git clone https://github.com/scrooloose/nerdcommenter.git ~/.vim/bundle
+  git clone https://github.com/scrooloose/nerdcommenter.git ~/.vim/bundle/nerdcommenter
 fi
 
-if [ ! -d ~/.vim/bundle/nerdcommenter ]; then
-  git clone https://github.com/Chiel92/vim-autoformat.git ~/.vim/bundle
+if [ ! -d ~/.vim/bundle/vim-autoformat ]; then
+  git clone https://github.com/Chiel92/vim-autoformat.git ~/.vim/bundle/vim-autoformat
 fi
 
 # install powerline
@@ -30,7 +30,7 @@ if [ ! -d ~/lib ]; then
 fi
 
 if [ ! -d ~/lib/powerline ]; then
-  git clone https://github.com/Lokaltog/powerline.git ~/lib/
+  git clone https://github.com/Lokaltog/powerline.git ~/lib/powerline
 fi
 
 # backup vimrc
