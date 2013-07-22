@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #install pathogen
 if [ ! -d ~/.vim/autoload ]; then
   mkdir -p ~/.vim/autoload
