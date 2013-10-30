@@ -9,6 +9,10 @@ if [ ! -d ~/.vim/bundle ]; then
   mkdir -p ~/.vim/bundle
 fi
 
+if [ ! -d ~/.vim/colors ]; then
+  mkdir -p ~/.vim/colors
+fi
+
 curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 # install vim packages
@@ -32,6 +36,11 @@ fi
 if [ ! -d ~/lib/powerline ]; then
   git clone https://github.com/Lokaltog/powerline.git ~/lib/powerline
 fi
+
+# install luna colorscheme
+git clone git@github.com:Pychimp/vim-luna.git
+cp vim-luna/colors/* ~/.vim/colors/
+rm -rf vim-luna
 
 # backup vimrc
 if [ -s ~/.vimrc ]; then

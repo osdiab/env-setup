@@ -1,4 +1,5 @@
-call pathogen#infect()
+execute pathogen#infect()
+
 "recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 
@@ -487,3 +488,9 @@ noremap <F7> :Autoformat<CR><CR>
 
 " powerline
 set rtp+=~/lib/powerline/powerline/bindings/vim
+
+" gjslint checker for js
+let g:syntastic_javascript_checkers=['gjslint, jshint']
+
+set t_Co=256
+colorscheme luna-term
