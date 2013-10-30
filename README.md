@@ -3,7 +3,7 @@
 This is my vimrc with a script to install everything :) Enjoy.
 
 Thanks to [@Frew on
-StackOverflow](http://stackoverflow.com/questions/164847/what-is-in-your-vimrc/165247#165247)
+StackOverflow](http://stackoverflow.com/questions/164847/what-is-in-your-vimrc/165247)
 for a big list of nice .vimrc tools.
 
 ## Requirements
