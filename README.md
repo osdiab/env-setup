@@ -14,7 +14,7 @@ for a big list of nice .vimrc tools.
 * A [Powerline font](https://github.com/Lokaltog/powerline-fonts) (I like
   DejaVu Sans Mono for Powerline most)
 
-## Features
+## Vim Features
 
 ### Plugins
 
@@ -35,3 +35,29 @@ for a big list of nice .vimrc tools.
 * [Luna](https://github.com/Pychimp/vim-luna) - Pretty colors :)
 
 ... and a huge .vimrc full of goodies.
+
+## Extra: iTerm2 configuration
+
+It contains...
+
+* My color scheme, modified from Solarized Dark
+* cmd-left/right jump words
+* option-left/right jump to beginning and end of line
+* cmd-delete deletes words
+* option-delete removes lines (undoable with cmd-Y)
+* cmd-option-left/right is next/prev tab
+* cmd-shift-leftright is to move tabs forward/backwards
+
+### Installation of iTerm2 config
+
+1. Make sure you have iTerm2 installed
+2. Go to Preferences... (cmd-,)
+3. General -> At the bottom, "Load Preferences from a custom folder or URL..."
+4. Enter the cloned repository directory (don't delete the repo if you plan on
+   using this!
+
+If it asks you to overwrite with your current profile, don't let it do that;
+and if you restart iTerm2 and it still shows your old profiles, then checkout
+the iterm2 config in the repo, and close iTerm2. It will prompt you for if you
+are okay with losing your old profile (If you're not, back it up!). You know
+what to do.
