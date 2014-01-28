@@ -489,8 +489,14 @@ noremap <F7> :Autoformat<CR><CR>
 " powerline
 set rtp+=~/lib/powerline/powerline/bindings/vim
 
-" gjslint checker for js
-let g:syntastic_javascript_checkers=['gjslint, jshint']
+" syntastic
+let g:syntastic_javascript_checkers=['gjslint', 'jshint']
+let g:syntastic_python_checkers=['pylint', 'pep8']
+let g:syntastic_ruby_checkers=['mri', 'rubocop']
+let g:syntastic_quiet_warnings=0
 
 set t_Co=256
 colorscheme luna-term
+
+" set clipboard to use Mac OSX clipboard
+set clipboard=unnamed
