@@ -228,7 +228,6 @@ set foldmethod=marker
 
 " Needed for Syntax Highlighting and stuff
 filetype on
-filetype plugin on
 syntax enable
 set grepprg=grep\ -nH\ $*
 
@@ -240,8 +239,8 @@ set expandtab
 set smarttab
 
 " Who wants an 8 character tab?  Not me!
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 
 " Use english for spellchecking, but don't spellcheck by default
 if version >= 700
@@ -478,7 +477,7 @@ set tw=79
 set fo+=t
 augroup vimrc_autocmds
     autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
-    autocmd BufEnter * match OverLength /\%79v.*/
+    autocmd BufEnter * match OverLength /\%80v.*/
 augroup END
 
 au BufNewFile, BufRead *.cpp set syntax=cpp11
@@ -491,12 +490,80 @@ set rtp+=~/lib/powerline/powerline/bindings/vim
 
 " syntastic
 let g:syntastic_javascript_checkers=['gjslint', 'jshint']
-let g:syntastic_python_checkers=['pylint', 'pep8']
+let g:syntastic_python_checkers=['flake8']
 let g:syntastic_ruby_checkers=['mri', 'rubocop']
+let g:syntastic_haskell_checkers=['ghc-mod', 'hdevtools']
 let g:syntastic_quiet_warnings=0
 
+" haskell ghc-mod syntastic: cabal sandboxes
+function! s:get_cabal_sandbox()
+  if filereadable('cabal.sandbox.config')
+    let l:output = system('cat cabal.sandbox.config | grep local-repo')
+    let l:dir = matchstr(substitute(l:output, '\n', ' ', 'g'), 'local-repo: \zs\S\+\ze\/packages')
+    return '-s ' . l:dir
+  else
+    return ''
+  endif
+endfunction
+
+let g:syntastic_haskell_ghc_mod_args = s:get_cabal_sandbox()
+
+" haskell hdevtools syntastic: cabal sandboxes
+function! FindCabalSandboxRoot()
+    return finddir('.cabal-sandbox', './;')
+endfunction
+
+function! FindCabalSandboxRootPackageConf()
+    return glob(FindCabalSandboxRoot().'/*-packages.conf.d')
+endfunction
+
+let g:syntastic_haskell_hdevtools_args = '-g-ilib -g-isrc -g-i. -g-idist/build/autogen -g-Wall -g-package-conf='.FindCabalSandboxRootPackageConf()
+
+" color scheme
 set t_Co=256
 colorscheme luna-term
 
 " set clipboard to use Mac OSX clipboard
 set clipboard=unnamed
+
+" markdown syntax highlighting
+let g:vim_markdown_initial_foldlevel=1
+
+" operator settings
+autocmd BufRead,BufNewFile ~/work/operator/**/* set tabstop=4 shiftwidth=4
+
+" allow jshint to find .jshintrc in directory
+function s:find_jshintrc(dir)
+    let l:found = globpath(a:dir, '.jshintrc')
+    if filereadable(l:found)
+        return l:found
+    endif
+
+    let l:parent = fnamemodify(a:dir, ':h')
+    if l:parent != a:dir
+        return s:find_jshintrc(l:parent)
+    endif
+
+    return "~/.jshintrc"
+endfunction
+
+function UpdateJsHintConf()
+    let l:dir = expand('%:p:h')
+    let l:jshintrc = s:find_jshintrc(l:dir)
+    let g:syntastic_javascript_jshint_conf = l:jshintrc
+endfunction
+
+au BufEnter * call UpdateJsHintConf()
+
+" different tab sizes for file types
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+au BufRead,BufNewFile *.ck set filetype=ck
+
+" indentation guides
+" for tabs
+set list listchars=tab:‧\ ,trail:·,extends:»,precedes:«,nbsp:×
+" otherwise
+let g:indentLine_char = '│'
+
