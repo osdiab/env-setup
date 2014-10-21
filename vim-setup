@@ -13,7 +13,7 @@ if [ ! -d ~/.vim/colors ]; then
   mkdir -p ~/.vim/colors
 fi
 
-curl -so ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+curl -so ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 # install vim packages
 if [ ! -d ~/.vim/bundle/syntastic ]; then
