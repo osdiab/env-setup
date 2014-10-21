@@ -493,7 +493,7 @@ let g:syntastic_javascript_checkers=['gjslint', 'jshint']
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_ruby_checkers=['mri', 'rubocop']
 let g:syntastic_haskell_checkers=['ghc-mod', 'hdevtools']
-let g:syntastic_quiet_warnings=0
+let g:syntastic_quiet_messages = { 'level': 'warnings' }
 
 " haskell ghc-mod syntastic: cabal sandboxes
 function! s:get_cabal_sandbox()
