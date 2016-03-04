@@ -79,11 +79,10 @@ git clone https://github.com/zsh-users/zsh-history-substring-search.git ~/.zsh-p
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 cp .zshrc ~/.zshrc
 
-# This script actually does a ton of stuff... So just use it :3
+# haskell-vim-now actually does a ton of stuff, including making vim a Haskell IDE... So just use it :3
 if [ "$OS" = "Darwin" ]; then
   brew install ghc cabal-install haskell-stack
 fi
-
 bash <(curl -sL https://git.io/haskell-vim-now)
 
 # copy new vimrc
