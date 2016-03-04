@@ -299,8 +299,10 @@ set tw=100
 set wrap "Wrap lines
 
 " highlight past 100 char width
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-match OverLength /\%101v.*/
+augroup vimrc_autocmds
+  autocmd BufEnter * highlight OverLength ctermbg=darkred guibg=#111111
+  autocmd BufEnter * match OverLength /\%101v.*/
+augroup END
 
 " Pretty unicode haskell symbols
 let g:haskell_conceal_wide = 1
