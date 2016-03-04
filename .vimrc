@@ -120,7 +120,6 @@ let g:airline_powerline_fonts = 1
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'whatyouhide/vim-lengthmatters'
-call lengthmatters#highlight('ctermbg=1 ctermfg=255')
 
 " Text manipulation
 Plug 'vim-scripts/Align'
@@ -180,6 +179,9 @@ if filereadable(hvn_user_plugins)
 endif
 
 call plug#end()
+
+" Initialize lengthmatters colors
+call lengthmatters#highlight('ctermbg=1 ctermfg=255')
 
 " }}}
 
