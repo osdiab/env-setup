@@ -165,6 +165,7 @@ Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 " Cross-environment linting
 Plug 'scrooloose/syntastic'
 let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_coffeescript_checkers=['coffee', 'coffeelint']
 let g:syntastic_typescript_checkers=['tslint']
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_ruby_checkers=['mri', 'rubocop']
