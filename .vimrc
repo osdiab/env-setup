@@ -40,6 +40,9 @@ augroup vimrcFold
   autocmd FileType vim set foldlevel=0
 augroup END
 
+" Space folds
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+
 " Set mac clipboard
 set clipboard=unnamed
 
