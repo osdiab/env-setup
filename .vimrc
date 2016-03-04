@@ -119,6 +119,8 @@ Plug 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
+Plug 'whatyouhide/vim-lengthmatters'
+call lengthmatters#highlight('ctermbg=1 ctermfg=255')
 
 " Text manipulation
 Plug 'vim-scripts/Align'
@@ -299,12 +301,6 @@ let g:ctrlp_custom_ignore = { 'dir': '\v[\/](.git|.cabal-sandbox|.stack-work)$' 
 set lbr
 set tw=100
 set wrap "Wrap lines
-
-" highlight past 100 char width
-augroup vimrc_autocmds
-  autocmd BufEnter * highlight OverLength ctermbg=darkred guibg=#111111
-  autocmd BufEnter * match OverLength /\%101v.*/
-augroup END
 
 " Pretty unicode haskell symbols
 let g:haskell_conceal_wide = 1
