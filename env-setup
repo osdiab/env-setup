@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# backup zshrc
+if [ -s ~/.zshrc ]; then
+  cp ~/.zshrc ~/.zshrc.bak
+fi
+
+# backup vimrc
+if [ -s ~/.vimrc ]; then
+  cp ~/.vimrc ~/.vimrc.bak
+fi
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Setup zsh plugins
+mkdir -p ~/.zsh-plugins
+git clone https://github.com/zsh-users/zsh-history-substring-search.git ~/.zsh-plugins/zsh-history-substring-search
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+cp .zshrc ~/.zshrc
+
+# This script actually does a ton of stuff... So just use it :3
+bash <(curl -sL https://git.io/haskell-vim-now)
+
+# copy new vimrc
+cp .vimrc ~/
+
+echo "In vim, run :PlugInstall to complete installation."
+echo "If you want a different iTerm2 color scheme, go here:"
+echo "https://github.com/mbadolato/iTerm2-Color-Schemes"
+echo "I like chalk."
+echo "If you want a new typeface, try Input Mono."
+echo "http://input.fontbureau.com/"
+echo "Finally, restart your terminal to use the zsh configuration."
+echo "Enjoy!"
