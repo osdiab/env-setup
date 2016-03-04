@@ -164,6 +164,7 @@ Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 
 " Cross-environment linting
 Plug 'scrooloose/syntastic'
+let g:syntastic_mode_map={ 'passive_filetypes': ['go'] }
 let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_coffeescript_checkers=['coffee', 'coffeelint']
 let g:syntastic_typescript_checkers=['tslint']
