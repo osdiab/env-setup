@@ -85,8 +85,10 @@ if [ "$OS" = "Darwin" ]; then
 fi
 bash <(curl -sL https://git.io/haskell-vim-now)
 
-# copy new vimrc
+# copy new vimrc, create backup areas
 cp -i .vimrc ~/
+mkdir -p ~/.vim/tmp
+mkdir -p ~/.vim/backup
 
 echo "In vim, run :PlugInstall to complete installation."
 echo "If you want a different iTerm2 color scheme, go here:"

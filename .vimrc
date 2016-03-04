@@ -24,6 +24,9 @@ endif
 " }}}
 
 " General {{{
+" 256 colors
+set t_Co=256
+
 " Use current file's directory
 set autochdir
 
@@ -258,10 +261,10 @@ set mouse=a
 
 " Files, backups and undo {{{
 
-" Turn backup off, since most stuff is in Git anyway...
-set nobackup
-set nowb
-set noswapfile
+set backupcopy=yes " allows webpack watch to work properly, by writing directly to file instead of replacing it
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
 
 " Source the vimrc file after saving it
 augroup sourcing
@@ -293,6 +296,10 @@ let g:ctrlp_custom_ignore = { 'dir': '\v[\/](.git|.cabal-sandbox|.stack-work)$' 
 set lbr
 set tw=100
 set wrap "Wrap lines
+
+" highlight past 100 char width
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+match OverLength /\%101v.*/
 
 " Pretty unicode haskell symbols
 let g:haskell_conceal_wide = 1
