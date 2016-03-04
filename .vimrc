@@ -129,6 +129,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-sleuth'
 Plug 'Yggdroot/indentLine'
+let g:indentLine_color_term = 239
 
 " Allow pane movement to jump out of vim into tmux
 Plug 'christoomey/vim-tmux-navigator'
