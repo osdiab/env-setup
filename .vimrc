@@ -148,6 +148,9 @@ Plug 'fatih/vim-go'
 Plug 'elzr/vim-json'
 Plug 'pangloss/vim-javascript'
 
+" Jade/Pug
+Plug 'digitaltoad/vim-pug'
+
 " Coffeescript
 Plug 'kchmck/vim-coffee-script'
 
@@ -473,6 +476,16 @@ nmap <silent> <Leader>rv <Plug>SetTmuxVars
 " }}}
 
 " NERDTree {{{
+
+" Ctrl-n toggles nerdtree
+map <C-n> :NERDTreeFind<CR>
+
+" nerdtree starts on enter
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" close vim if nerdtree is only thing open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Close nerdtree after a file is selected
 let NERDTreeQuitOnOpen = 1
