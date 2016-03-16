@@ -27,9 +27,6 @@ endif
 " 256 colors
 set t_Co=256
 
-" Use current file's directory
-set autochdir
-
 " Use indentation for folds
 set foldmethod=indent
 set foldnestmax=5
@@ -120,6 +117,11 @@ let g:airline_powerline_fonts = 1
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'whatyouhide/vim-lengthmatters'
+Plug 'miyakogi/conoline.vim'
+let g:conoline_color_normal_light = 'ctermbg=236'
+let g:conoline_color_normal_nr_light = 'ctermbg=236'
+let g:conoline_color_insert_light = 'ctermbg=234'
+let g:conoline_color_insert_nr_light = 'ctermbg=234'
 
 " Text manipulation
 Plug 'vim-scripts/Align'
@@ -230,6 +232,7 @@ set smartcase
 
 " Highlight search results
 set hlsearch
+hi Search cterm=NONE ctermfg=darkgrey ctermbg=lightyellow
 
 " Makes search act like search in modern browsers
 set incsearch
@@ -328,6 +331,7 @@ vmap <leader>p "*p
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
+hi Visual cterm=NONE ctermfg=darkgrey ctermbg=lightblue
 
 " }}}
 
@@ -659,6 +663,7 @@ nmap <silent> <leader>hT :GhcModTypeInsert<CR>
 nmap <silent> <leader>hc :Neomake ghcmod<CR>
 
 " Fix path issues from vim.wikia.com/wiki/Set_working_directory_to_the_current_file
+autocmd BufEnter * silent! lcd %:p:h
 let s:default_path = escape(&path, '\ ') " store default value of 'path'
 " Always add the current file's directory to the path and tags list if not
 " already there. Add it to the beginning to speed up searches.
