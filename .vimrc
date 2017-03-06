@@ -131,6 +131,7 @@ Plug 'godlygeek/tabular'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-abolish'
 Plug 'Yggdroot/indentLine'
 let g:indentLine_color_term = 239
 
@@ -139,16 +140,20 @@ Plug 'christoomey/vim-tmux-navigator'
 
 " Markdown
 Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_conceal = 0
 
 " Rust
 Plug 'rust-lang/rust.vim'
 
 " Go
 Plug 'fatih/vim-go'
+au BufRead,BufNewFile *.squid setfiletype go
 
 " Javascript
 Plug 'elzr/vim-json'
-Plug 'pangloss/vim-javascript'
+let g:vim_json_syntax_conceal = 0
+Plug 'kern/vim-es7'
+Plug 'mxw/vim-jsx'
 
 " Jade/Pug
 Plug 'digitaltoad/vim-pug'
@@ -157,8 +162,14 @@ Plug 'digitaltoad/vim-pug'
 Plug 'kchmck/vim-coffee-script'
 
 " Typescript
-Plug 'Quramy/tsuquyomi'
+" Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
+
+" Thrift
+Plug 'solarnz/thrift.vim'
+
+" Actionscript (Flash)
+Plug 'jeroenbourgois/vim-actionscript'
 
 " Haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
@@ -173,9 +184,11 @@ Plug 'scrooloose/syntastic'
 let g:syntastic_mode_map={ 'passive_filetypes': ['go'] }
 let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_coffeescript_checkers=['coffee', 'coffeelint']
-let g:syntastic_typescript_checkers=['tslint']
+let g:syntastic_typescript_checkers=['tsc', 'tslint', 'eslint']
+let g:syntastic_typescript_tsc_fname = ''
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_ruby_checkers=['mri', 'rubocop']
+let g:syntastic_go_checkers=['go', 'gofmt', 'golint', 'govet']
 
 " Custom bundles
 
@@ -304,6 +317,8 @@ let g:ctrlp_custom_ignore = { 'dir': '\v[\/](.git|.cabal-sandbox|.stack-work)$' 
 " }}}
 
 " Text, tab and indent related {{{
+
+set tabstop=4
 
 " Linebreak on 100 characters
 set lbr
