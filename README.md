@@ -1,6 +1,10 @@
-# Omar's shell
+# DEPRECATED: Omar's shell
 
-This is my zsh and vimrc with a script to install everything :) Enjoy.
+This is my old zsh and vimrc with a script to install everything.
+
+I don't really use this anymore, check out [my dotfiles](https://github.com/osdiab/dotfiles) for what I actually use.
+
+This contains a lot of stuff that is totally not necessary, the stuff above should be lots cleaner.
 
 ## Requirements
 
